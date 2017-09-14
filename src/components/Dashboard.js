@@ -2,13 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class Dasboard extends Component {
+class Dashboard extends Component {
   componentWillMount(){
     this.props.fetchArticles();
   }
   render(){
-    return <div>Dashboard</div>
+    console.log(this.props.articles)
+    let articles = this.props.articles;
+    if(articles){
+      articles = articles.map(article => {
+        return (
+          <div>{article.title}</div>
+        )
+      })
+    } else {
+      articles = [];
+    }
+    return (
+      <div className="container">
+        Articles
+        {articles}
+      </div>
+    )
   }
 }
 
-export default connect(null, actions)(Dasboard);
+function mapStateToProps(state){
+  return { articles: state.auth.articles };
+}
+
+export default connect(mapStateToProps, actions)(Dashboard);

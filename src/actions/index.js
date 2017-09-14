@@ -3,7 +3,8 @@ import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  FETCH_ARTICLES
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -43,7 +44,11 @@ export function fetchArticles() {
     axios.get(`${API_URL}/api/v1/users/${user_id}/articles`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).then(response => {
-      console.log(response);
+      console.log(response.data);
+      dispatch({
+        type: FETCH_ARTICLES,
+        payload: response.data
+      })
     });
   }
 }
