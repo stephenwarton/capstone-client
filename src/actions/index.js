@@ -36,3 +36,14 @@ export function logoutUser(){
   browserHistory.push('/');
   return { type: UNAUTH_USER };
 }
+
+export function fetchArticles() {
+  const user_id = localStorage.getItem('user_id');
+  return function(dispatch) {
+    axios.get(`${API_URL}/api/v1/users/${user_id}/articles`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }).then(response => {
+      console.log(response);
+    });
+  }
+}
