@@ -1,19 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/main.css';
-import App from './containers/App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import reducers from './reducers';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
+import reducers from './reducers';
+import './styles/main.css';
+import { AUTH_USER } from './actions/types';
 
-const store = applyMiddleware(reduxThunk)(createStore);
+import App from './containers/App';
+import Logout from './components/Logout';
+import Dashboard from './components/Dashboard';
+import RequireAuth from './components/require_auth';
+
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const store = createStoreWithMiddleware(reducers);
+
+
+const token = localStorage.getItem('token');
+if(token){
+  store.dispatch({ type: AUTH_USER });
+}
 
 ReactDOM.render(
-  <Provider store={store(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+        <Route path="logout" component={RequireAuth(Logout)} />
+        <Route path="dashboard" component={RequireAuth(Dashboard)} />
       </Route>
     </Router>
   </Provider>,

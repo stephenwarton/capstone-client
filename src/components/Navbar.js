@@ -43,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect()(Navbar);
+export default connect(mapStateToProps)(Navbar);
