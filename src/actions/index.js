@@ -60,7 +60,7 @@ export function fetchPlaylists() {
     axios.get(`${API_URL}/api/v1/users/${user_id}/playlists`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).then(response => {
-      console.log(response.data);
+      //console.log(response.data);
       dispatch({
         type: FETCH_PLAYLISTS,
         payload: response.data

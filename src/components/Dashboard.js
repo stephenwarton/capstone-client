@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import Article from './Article';
+
 class Dashboard extends Component {
   componentWillMount(){
     this.props.fetchArticles();
@@ -9,17 +11,10 @@ class Dashboard extends Component {
   }
 
   render(){
-    //console.log(this.props.articles)
     let articles = this.props.articles;
     if(articles){
       articles = articles.map(article => {
-        return (
-          <div key={article.id} className="card">
-            <div className="card-body">
-              {article.title}
-            </div>
-          </div>
-        )
+        return <Article key={article.id} article={article} />
       })
     } else {
       articles = [];
@@ -34,7 +29,7 @@ class Dashboard extends Component {
             <div className="card-body">
               <h4>{key}</h4>
               {playlist[key].map(article => {
-                return <div key={article.article_id}>{article.article_title}</div>
+                return <Article key={article.article_id} article={article} />
               })}
             </div>
           </div>
@@ -49,6 +44,9 @@ class Dashboard extends Component {
         <div className="row">
           <div className="col">
               <h3>Articles</h3>
+              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.onOpenNewModal}>
+                Add New Article
+              </button>
             {articles}
           </div>
           <div className="col">
