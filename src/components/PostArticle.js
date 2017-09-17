@@ -16,8 +16,11 @@ class PostArticle extends Component{
 
   onSubmit(e){
     e.preventDefault();
-    this.props.postArticle(this.state.url);
+    this.props.postArticle(this.state.url, this.props.fetchArticles);
     $('#PostModal').modal('hide');
+    this.setState({
+      url: ""
+    });
   }
 
   handleChange(e){

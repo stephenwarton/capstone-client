@@ -70,18 +70,25 @@ export function fetchPlaylists() {
   }
 }
 
-export function postArticle(url){
-  console.log(url);
+export function postArticle(url, fetchArticles){
   const users_id = localStorage.getItem('user_id');
   return function(dispatch){
-    axios.post(`${API_URL}/api/v1/article`, {
-      url,
-      users_id
-    }).then(response => {
+    axios.post(`${API_URL}/api/v1/article`,
+      {
+        url,
+        users_id
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Id: users_id        
+       }
+      }).then(response => {
         dispatch({
           type: POST_ARTICLE,
           payload: response.data
-        })
-      })
+        });
+        fetchArticles();
+      });
   }
 }

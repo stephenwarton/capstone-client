@@ -46,7 +46,7 @@ class Dashboard extends Component {
         <div className="row">
           <div className="col">
             <h3>Articles</h3>
-            <PostArticle postArticle={this.props.postArticle}/>
+            <PostArticle postArticle={this.props.postArticle} fetchArticles={this.props.fetchArticles} />
             {articles}
           </div>
           <div className="col">

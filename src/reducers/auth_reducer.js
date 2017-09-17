@@ -21,6 +21,7 @@ export default function(state = {}, action){
       return { ...state, playlists: action.payload };
     case POST_ARTICLE:
       return { ...state, post: action.payload };
+    default:
   }
   return state;
 }
