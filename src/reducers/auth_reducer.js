@@ -3,7 +3,8 @@ import {
   UNAUTH_USER,
   AUTH_ERROR,
   FETCH_ARTICLES,
-  FETCH_PLAYLISTS
+  FETCH_PLAYLISTS,
+  POST_ARTICLE
 } from '../actions/types'
 
 export default function(state = {}, action){
@@ -18,6 +19,8 @@ export default function(state = {}, action){
       return { ...state, articles: action.payload };
     case FETCH_PLAYLISTS:
       return { ...state, playlists: action.payload };
+    case POST_ARTICLE:
+      return { ...state, post: action.payload };
   }
   return state;
 }

@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Article from './Article';
+import PostArticle from './PostArticle';
 
 class Dashboard extends Component {
+
   componentWillMount(){
     this.props.fetchArticles();
     this.props.fetchPlaylists();
@@ -43,10 +45,8 @@ class Dashboard extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-              <h3>Articles</h3>
-              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.onOpenNewModal}>
-                Add New Article
-              </button>
+            <h3>Articles</h3>
+            <PostArticle postArticle={this.props.postArticle}/>
             {articles}
           </div>
           <div className="col">
@@ -62,7 +62,8 @@ class Dashboard extends Component {
 function mapStateToProps(state){
   return {
           articles: state.auth.articles,
-          playlists: state.auth.playlists
+          playlists: state.auth.playlists,
+          post: state.auth.post
         };
 }
 

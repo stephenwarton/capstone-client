@@ -5,7 +5,8 @@ import {
   UNAUTH_USER,
   AUTH_ERROR,
   FETCH_ARTICLES,
-  FETCH_PLAYLISTS
+  FETCH_PLAYLISTS,
+  POST_ARTICLE
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -66,5 +67,21 @@ export function fetchPlaylists() {
         payload: response.data
       })
     });
+  }
+}
+
+export function postArticle(url){
+  console.log(url);
+  const users_id = localStorage.getItem('user_id');
+  return function(dispatch){
+    axios.post(`${API_URL}/api/v1/article`, {
+      url,
+      users_id
+    }).then(response => {
+        dispatch({
+          type: POST_ARTICLE,
+          payload: response.data
+        })
+      })
   }
 }
