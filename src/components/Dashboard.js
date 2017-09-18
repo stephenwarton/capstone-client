@@ -4,6 +4,7 @@ import * as actions from '../actions';
 
 import Article from './Article';
 import PostArticle from './PostArticle';
+import PostPlaylist from './PostPlaylist';
 
 class Dashboard extends Component {
 
@@ -51,6 +52,7 @@ class Dashboard extends Component {
           </div>
           <div className="col">
             <h3>Playlists</h3>
+            <PostPlaylist postPlaylist={this.props.postPlaylist} fetchPlaylists={this.props.fetchPlaylists} />
             {playlists}
           </div>
         </div>

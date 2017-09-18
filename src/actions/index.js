@@ -6,7 +6,8 @@ import {
   AUTH_ERROR,
   FETCH_ARTICLES,
   FETCH_PLAYLISTS,
-  POST_ARTICLE
+  POST_ARTICLE,
+  POST_PLAYLIST
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -61,7 +62,7 @@ export function fetchPlaylists() {
     axios.get(`${API_URL}/api/v1/users/${user_id}/playlists`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }).then(response => {
-      //console.log(response.data);
+      // console.log(response.data);
       dispatch({
         type: FETCH_PLAYLISTS,
         payload: response.data
@@ -81,7 +82,7 @@ export function postArticle(url, fetchArticles){
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
-          Id: users_id        
+          Id: users_id
        }
       }).then(response => {
         dispatch({
@@ -89,6 +90,29 @@ export function postArticle(url, fetchArticles){
           payload: response.data
         });
         fetchArticles();
+      });
+  }
+}
+
+export function postPlaylist(name, fetchPlaylists){
+  const users_id = localStorage.getItem('user_id');
+  return function(dispatch){
+    axios.post(`${API_URL}/api/v1/playlist`,
+      {
+        name,
+        users_id
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Id: users_id
+       }
+      }).then(response => {
+        dispatch({
+          type: POST_PLAYLIST,
+          payload: response.data
+        });
+        fetchPlaylists();
       });
   }
 }
