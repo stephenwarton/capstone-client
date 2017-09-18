@@ -11,49 +11,12 @@ class AddToPlaylistModal extends Component{
 
   handleClick(e){
     e.preventDefault();
-    //this.props.postArticle(this.state.url, this.props.fetchArticles);
-    $('#PostModal').modal('hide');
+    console.log(this.props.articleId, e.target.id);
+    // this.props.addToPlaylist(this.props.articleId, e.target.id,this.props.fetchPlaylists);
+    // $('#ToPlaylistModal').modal('hide');
   }
 
-  // componentWillMount(){
-  //   let playlists = this.props.playlists;
-  //   let playlistItem;
-  //   if(playlists){
-  //     playlists = playlists.map(playlist => {
-  //       let playlistKey = Object.keys(playlist)[0];
-  //       let id = playlist[playlistKey][0].playlist_id;
-  //       playlistItem = {
-  //         name: playlistKey,
-  //         id: id
-  //       }
-  //       playlists.push(playlistItem);
-  //       console.log(playlists);
-  //       return playlists;
-  //     })
-  //   } else {
-  //     playlists = [];
-  //   }
-  // }
-
   render(){
-    // let playlists = this.props.playlists;
-    // let playlistItem;
-    // if(playlists){
-    //   playlists = playlists.map(playlist => {
-    //     let playlistKey = Object.keys(playlist)[0];
-    //     let id = playlist[playlistKey][0].playlist_id;
-    //     playlistItem = {
-    //       name: playlistKey,
-    //       id: id
-    //     }
-    //     playlists.push(playlistItem);
-    //     console.log(playlists);
-    //     return playlists;
-    //   })
-    // } else {
-    //   playlists = [];
-    // }
-    console.log(this.props.playlists)
     return(
       <div>
         <div className="modal fade" id="ToPlaylistModal" tabIndex="-1" role="dialog" aria-labelledby="AddToModalLabel" aria-hidden="true">
@@ -66,14 +29,18 @@ class AddToPlaylistModal extends Component{
                 </button>
               </div>
               <div className="modal-body">
-                {this.props.playlists.map(playlist => {
+                {
+                  this.props.playlists
+                  ? this.props.playlists.map(playlist => {
                   return (
-                    <p key={playlist.id}>
-                      <button type="button" className="btn btn-primary" onClick={this.handleClick} >
-                        {playlist.name}
+                    <p key={playlist.props.id} id={playlist.props.id} >
+                      <button type="button" className="btn btn-primary" onClick={this.handleClick} id={playlist.props.id} >
+                        {playlist.props.playlistKey}
                       </button>
                     </p>
-                  )})}
+                  )})
+                  : <div></div>
+                }
               </div>
             </div>
           </div>

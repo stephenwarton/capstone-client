@@ -9,7 +9,9 @@ import {
   POST_ARTICLE,
   POST_PLAYLIST,
   DELETE_ARTICLE,
-  DELETE_PLAYLIST
+  DELETE_PLAYLIST,
+  ADD_TO_PLAYLIST,
+  REMOVE_FROM_PLAYLIST
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -154,6 +156,48 @@ export function deletePlaylist(id, fetchPlaylists){
           payload: response.data
         });
         fetchArticles();
+        fetchPlaylists();
+      });
+  }
+}
+
+export function addToPlaylist(article_id, playlist_id, fetchPlaylists){
+  const users_id = localStorage.getItem('user_id');
+  return function(dispatch){
+    axios.post(`${API_URL}/api/v1/article_playlist`,
+      {
+        article_id,
+        playlist_id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Id: users_id
+       }
+      }).then(response => {
+        dispatch({
+          type: ADD_TO_PLAYLIST,
+          payload: response.data
+        });
+        fetchPlaylists();
+      });
+  }
+}
+
+export function removeFromPlaylist(id, fetchPlaylists){
+  const users_id = localStorage.getItem('user_id');
+  return function(dispatch){
+    axios.delete(`${API_URL}/api/v1/article_playlist/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Id: users_id
+       }
+      }).then(response => {
+        dispatch({
+          type: REMOVE_FROM_PLAYLIST,
+          payload: response.data
+        });
         fetchPlaylists();
       });
   }

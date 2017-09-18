@@ -15,24 +15,24 @@ class Dashboard extends Component {
   }
 
   render(){
-    let articles = this.props.articles;
-    if(articles){
-      articles = articles.map(article => {
-        return <Article key={article.id} article={article} deleteArticle={this.props.deleteArticle} fetchArticles={this.props.fetchArticles} fetchPlaylists={this.props.fetchPlaylists}/>
-      })
-    } else {
-      articles = [];
-    }
-
     let playlists = this.props.playlists;
     if(playlists){
       playlists = playlists.map(playlist => {
         let playlistKey = Object.keys(playlist)[0];
         let id = playlist[playlistKey][0].playlist_id;
-        return <Playlist key={id} id={id} playlistKey={playlistKey} playlist={playlist} deletePlaylist={this.props.deletePlaylist} fetchPlaylists={this.props.fetchPlaylists}/>
+        return <Playlist key={id} id={id} playlistKey={playlistKey} playlist={playlist} deletePlaylist={this.props.deletePlaylist} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist}/>
       })
     } else {
       playlists = [];
+    }
+
+    let articles = this.props.articles;
+    if(articles){
+      articles = articles.map(article => {
+        return <Article key={article.id} article={article} deleteArticle={this.props.deleteArticle} fetchArticles={this.props.fetchArticles} fetchPlaylists={this.props.fetchPlaylists} playlists={playlists} addToPlaylist={this.props.addToPlaylist}/>
+      })
+    } else {
+      articles = [];
     }
 
     return (
@@ -59,7 +59,8 @@ function mapStateToProps(state){
           articles: state.auth.articles,
           playlists: state.auth.playlists,
           post: state.auth.post,
-          delete: state.auth.delete
+          delete: state.auth.delete,
+          add: state.auth.add
         };
 }
 

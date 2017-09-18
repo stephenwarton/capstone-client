@@ -7,3 +7,5 @@ export const POST_ARTICLE = 'post_article';
 export const POST_PLAYLIST = 'post_playlist';
 export const DELETE_ARTICLE = 'delete_article';
 export const DELETE_PLAYLIST = 'delete_playlist';
+export const ADD_TO_PLAYLIST = 'add_to_playlist';
+export const REMOVE_FROM_PLAYLIST = 'remove_from_playlist';
