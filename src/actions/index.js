@@ -7,7 +7,8 @@ import {
   FETCH_ARTICLES,
   FETCH_PLAYLISTS,
   POST_ARTICLE,
-  POST_PLAYLIST
+  POST_PLAYLIST,
+  DELETE_ARTICLE
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -112,6 +113,26 @@ export function postPlaylist(name, fetchPlaylists){
           type: POST_PLAYLIST,
           payload: response.data
         });
+        fetchPlaylists();
+      });
+  }
+}
+
+export function deleteArticle(id, fetchArticles, fetchPlaylists){
+  const users_id = localStorage.getItem('user_id');
+  return function(dispatch){
+    axios.delete(`${API_URL}/api/v1/article/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Id: users_id
+       }
+      }).then(response => {
+        dispatch({
+          type: DELETE_ARTICLE,
+          payload: response.data
+        });
+        fetchArticles();
         fetchPlaylists();
       });
   }

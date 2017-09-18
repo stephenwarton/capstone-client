@@ -25,7 +25,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark">
         <div className="container">
-          <Link to="/">
+          <Link to="/dashboard">
             <span className="h1 navbar-brand mb-0">Article Articulator</span>
           </Link>
           <ul className="nav navbar-nav">

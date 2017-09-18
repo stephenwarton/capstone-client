@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Article from './Article';
+import PlaylistArticle from './PlaylistArticle';
 import PostArticle from './PostArticle';
 import PostPlaylist from './PostPlaylist';
 
@@ -17,7 +18,7 @@ class Dashboard extends Component {
     let articles = this.props.articles;
     if(articles){
       articles = articles.map(article => {
-        return <Article key={article.id} article={article} />
+        return <Article key={article.id} article={article} deleteArticle={this.props.deleteArticle} fetchArticles={this.props.fetchArticles} fetchPlaylists={this.props.fetchPlaylists}/>
       })
     } else {
       articles = [];
@@ -32,7 +33,7 @@ class Dashboard extends Component {
             <div className="card-body">
               <h4>{key}</h4>
               {playlist[key].map(article => {
-                return <Article key={article.article_id} article={article} />
+                return <PlaylistArticle key={article.article_id} article={article} />
               })}
             </div>
           </div>
@@ -65,7 +66,8 @@ function mapStateToProps(state){
   return {
           articles: state.auth.articles,
           playlists: state.auth.playlists,
-          post: state.auth.post
+          post: state.auth.post,
+          delete: state.auth.delete
         };
 }
 

@@ -5,7 +5,8 @@ import {
   FETCH_ARTICLES,
   FETCH_PLAYLISTS,
   POST_ARTICLE,
-  POST_PLAYLIST
+  POST_PLAYLIST,
+  DELETE_ARTICLE
 } from '../actions/types'
 
 export default function(state = {}, action){
@@ -24,6 +25,8 @@ export default function(state = {}, action){
       return { ...state, post: action.payload };
     case POST_PLAYLIST:
       return { ...state, post: action.payload };
+    case DELETE_ARTICLE:
+      return { ...state, delete: action.payload };
     default:
   }
   return state;
