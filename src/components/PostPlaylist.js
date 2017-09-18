@@ -48,7 +48,7 @@ class PostPlaylist extends Component{
               <div className="modal-body">
                 <form onSubmit={this.onSubmit}>
                   <label htmlFor="name">Please provide playlist name:</label>
-                  <input className="form-control" type="text" placeholder="name" id="name" onChange={this.handleChange}/>
+                  <input className="form-control" type="text" placeholder="name" id="name" value={this.state.name} onChange={this.handleChange}/>
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="submit" className="btn btn-primary">Create Playlist</button>
                 </form>
