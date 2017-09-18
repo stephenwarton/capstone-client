@@ -11,15 +11,16 @@ class AddToPlaylistModal extends Component{
 
   handleClick(e){
     e.preventDefault();
-    console.log(this.props.articleId, e.target.id);
-    // this.props.addToPlaylist(this.props.articleId, e.target.id,this.props.fetchPlaylists);
-    // $('#ToPlaylistModal').modal('hide');
+    let articleId = this.props.articleId;
+    // console.log(articleId, e.target.id);
+    this.props.addToPlaylist(articleId, e.target.id,this.props.fetchPlaylists);
+    $(`#ToPlaylistModal${articleId}`).modal('hide');
   }
 
   render(){
     return(
       <div>
-        <div className="modal fade" id="ToPlaylistModal" tabIndex="-1" role="dialog" aria-labelledby="AddToModalLabel" aria-hidden="true">
+        <div className="modal fade" id={`ToPlaylistModal${this.props.articleId}`} tabIndex="-1" role="dialog" aria-labelledby="AddToModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

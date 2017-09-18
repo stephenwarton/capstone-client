@@ -30,7 +30,7 @@ handleDelete(e){
             </div>
           </div>
             {playlist[playlistKey].map(article => {
-              console.log(article)
+              // console.log(article)
               let returned;
               if(article.article_id){
                 returned = <PlaylistArticle key={article.id} article={article} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist}/>

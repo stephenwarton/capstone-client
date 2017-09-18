@@ -10,7 +10,7 @@ class PlaylistArticle extends Component {
 
   handleDelete(e){
     e.preventDefault();
-    console.log('remove', this.props.article.id);
+    // console.log('remove', this.props.article.id);
     this.props.removeFromPlaylist(this.props.article.id, this.props.fetchPlaylists);
   }
 

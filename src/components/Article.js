@@ -7,7 +7,6 @@ class Article extends Component {
   super(props);
 
   this.handleDelete = this.handleDelete.bind(this);
-  this.handleAdd = this.handleAdd.bind(this);
   this.handlePlay = this.handlePlay.bind(this);
 
   }
@@ -15,11 +14,6 @@ class Article extends Component {
 handleDelete(e){
   e.preventDefault();
   this.props.deleteArticle(this.props.article.id, this.props.fetchArticles, this.props.fetchPlaylists);
-}
-
-handleAdd(e){
-  e.preventDefault();
-  console.log(this.props.article.id);
 }
 
 handlePlay(e){
@@ -38,13 +32,13 @@ handlePlay(e){
               </div>
               <div className="col">
                 <button type="button" className="btn btn-success" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
-                <button type="button" className="btn btn-primary" onClick={this.handleAdd} data-toggle="modal" data-target="#ToPlaylistModal"><span className="oi oi-plus"></span></button>
+                <button type="button" className="btn btn-primary" onClick={this.handleAdd} data-toggle="modal" data-target={`#ToPlaylistModal${this.props.article.id}`}><span className="oi oi-plus"></span></button>
                 <button type="button" className="btn btn-danger" onClick={this.handleDelete}><span className="oi oi-trash"></span></button>
               </div>
             </div>
           </div>
         </div>
-        <AddToPlaylistModal playlists={this.props.playlists} fetchPlaylists={this.props.fetchPlaylists} addToPlaylist={this.props.addToPlaylist} articleId={this.props.article.id}/>
+        <AddToPlaylistModal playlists={this.props.playlists} fetchPlaylists={this.props.fetchPlaylists} addToPlaylist={this.props.addToPlaylist} articleId={this.props.article.id} />
       </div>
     )
   }
