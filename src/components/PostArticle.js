@@ -48,7 +48,7 @@ class PostArticle extends Component{
               <div className="modal-body">
                 <form onSubmit={this.onSubmit}>
                   <label htmlFor="url">Please provide article URL:</label>
-                  <input className="form-control" type="text" placeholder="url" id="url" onChange={this.handleChange}/>
+                  <input className="form-control" type="text" placeholder="url" id="url" value={this.state.url} onChange={this.handleChange}/>
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="submit" className="btn btn-primary">Add Article</button>
                 </form>

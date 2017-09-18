@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Article from './Article';
-import PlaylistArticle from './PlaylistArticle';
+import Playlist from './Playlist';
 import PostArticle from './PostArticle';
 import PostPlaylist from './PostPlaylist';
 
@@ -27,17 +27,9 @@ class Dashboard extends Component {
     let playlists = this.props.playlists;
     if(playlists){
       playlists = playlists.map(playlist => {
-        let key = Object.keys(playlist)[0]
-        return (
-          <div key={key} className="card">
-            <div className="card-body">
-              <h4>{key}</h4>
-              {playlist[key].map(article => {
-                return <PlaylistArticle key={article.article_id} article={article} />
-              })}
-            </div>
-          </div>
-        )
+        let playlistKey = Object.keys(playlist)[0];
+        let id = playlist[playlistKey][0].playlist_id;
+        return <Playlist key={id} id={id} playlistKey={playlistKey} playlist={playlist} deletePlaylist={this.props.deletePlaylist} fetchPlaylists={this.props.fetchPlaylists}/>
       })
     } else {
       playlists = [];
