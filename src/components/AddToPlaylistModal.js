@@ -35,7 +35,7 @@ class AddToPlaylistModal extends Component{
                   ? this.props.playlists.map(playlist => {
                   return (
                     <p key={playlist.props.id} id={playlist.props.id} >
-                      <button type="button" className="btn btn-primary" onClick={this.handleClick} id={playlist.props.id} >
+                      <button type="button" className="btn btn-secondary" onClick={this.handleClick} id={playlist.props.id} >
                         {playlist.props.playlistKey}
                       </button>
                     </p>

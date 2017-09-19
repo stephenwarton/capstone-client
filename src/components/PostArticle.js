@@ -33,7 +33,7 @@ class PostArticle extends Component{
   render(){
     return(
       <div>
-        <button type="button" className="btn btn-primary header-button" data-toggle="modal" data-target="#PostModal" >
+        <button type="button" className="btn btn-secondary header-button" data-toggle="modal" data-target="#PostModal" >
           Add New Article
         </button>
         <div className="modal fade" id="PostModal" tabIndex="-1" role="dialog" aria-labelledby="PostModalLabel" aria-hidden="true">
@@ -50,7 +50,7 @@ class PostArticle extends Component{
                   <label htmlFor="url">Please provide article URL:</label>
                   <input className="form-control" type="text" placeholder="url" id="url" value={this.state.url} onChange={this.handleChange}/>
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" className="btn btn-primary">Add Article</button>
+                  <button type="submit" className="btn btn-secondary">Add Article</button>
                 </form>
               </div>
             </div>

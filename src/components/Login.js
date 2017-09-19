@@ -36,7 +36,7 @@ class Login extends Component {
                 <input {...password} type="password" className="form-control" placeholder="Password"/>
               </fieldset>
               {this.renderAlert()}
-              <button action="submit" className="btn btn-primary">Login</button>
+              <button action="submit" className="btn btn-secondary">Login</button>
             </form>
           </div>
           <div className="col">

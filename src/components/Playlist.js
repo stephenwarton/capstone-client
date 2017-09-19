@@ -22,11 +22,12 @@ handleDelete(e){
       <div className="card playlist-container">
         <div className="card-body">
           <div className="row">
-            <div className="col-10">
+            <div className="col-8">
               <h4>{playlistKey}</h4>
             </div>
             <div className="col">
-              <button type="button" className="btn btn-danger" onClick={this.handleDelete}><span className="oi oi-trash"></span></button>
+              <button type="button" className="btn btn-secondary" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
+              <button type="button" className="btn btn-secondary" onClick={this.handleDelete}><span className="oi oi-trash"></span></button>
             </div>
           </div>
             {playlist[playlistKey].map(article => {

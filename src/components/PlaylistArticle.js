@@ -23,7 +23,8 @@ class PlaylistArticle extends Component {
               {this.props.article.article_title}
             </div>
             <div className="col">
-              <button type="button" className="btn btn-danger" onClick={this.handleDelete}><span className="oi oi-x"></span></button>
+              <button type="button" className="btn btn-secondary" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
+              <button type="button" className="btn btn-secondary x" onClick={this.handleDelete}><small><span className="oi oi-x"></span></small></button>
             </div>
           </div>
         </div>
