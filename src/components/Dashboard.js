@@ -6,7 +6,6 @@ import Article from './Article';
 import Playlist from './Playlist';
 import PostArticle from './PostArticle';
 import PostPlaylist from './PostPlaylist';
-import Voice from './Voice';
 
 class Dashboard extends Component {
 
