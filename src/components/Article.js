@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import AddToPlaylistModal from './AddToPlaylistModal';
+import * as voice from './Voice';
 
 class Article extends Component {
   constructor(props) {
@@ -18,7 +19,9 @@ handleDelete(e){
 
 handlePlay(e){
   e.preventDefault();
-  console.log(this.props.article.id);
+  voice.cancel();
+  console.log(this.props.article.id, this.props.article.content);
+  voice.speak(this.props.article.content);
 }
 
   render() {
