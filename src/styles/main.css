@@ -48,21 +48,34 @@ h3 {
   margin-left: .5em;
 }
 
-.header-row {
+.header-row-left {
   margin-top: .25em;
   background-color: #1985A1;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.header-row-middle-left {
+  margin-top: .25em;
+  padding-right: .25em;
+  background-color: #1985A1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.header-row-middle-right {
+  margin-top: .25em;
+  margin-left: .5em;
+  background-color: #1985A1;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .header-row-right {
   margin-top: .25em;
-  padding-right: .25em;
   background-color: #1985A1;
-}
-
-.header-row-left {
-  margin-top: .25em;
-  margin-left: .5em;
-  background-color: #1985A1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .header-button {
