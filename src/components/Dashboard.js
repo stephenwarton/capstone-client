@@ -39,15 +39,27 @@ class Dashboard extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h3>Articles</h3>
-            <PostArticle postArticle={this.props.postArticle} fetchArticles={this.props.fetchArticles} />
+            <div className="row">
+              <div className="col header-row">
+                <h3>Articles</h3>
+              </div>
+              <div className="col header-row-right">
+                <PostArticle postArticle={this.props.postArticle} fetchArticles={this.props.fetchArticles} />
+              </div>
             {articles}
           </div>
-          <div className="col">
-            <h3>Playlists</h3>
-            <PostPlaylist postPlaylist={this.props.postPlaylist} fetchPlaylists={this.props.fetchPlaylists} />
+        </div>
+        <div className="col">
+          <div className="row">
+            <div className="col header-row-left">
+              <h3>Playlists</h3>
+            </div>
+            <div className="col header-row">
+              <PostPlaylist postPlaylist={this.props.postPlaylist} fetchPlaylists={this.props.fetchPlaylists} />
+              </div>
             {playlists}
           </div>
+        </div>
         </div>
       </div>
     )

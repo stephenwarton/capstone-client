@@ -33,7 +33,7 @@ class PostArticle extends Component{
   render(){
     return(
       <div>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#PostModal" >
+        <button type="button" className="btn btn-primary header-button" data-toggle="modal" data-target="#PostModal" >
           Add New Article
         </button>
         <div className="modal fade" id="PostModal" tabIndex="-1" role="dialog" aria-labelledby="PostModalLabel" aria-hidden="true">

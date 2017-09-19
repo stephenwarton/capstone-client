@@ -33,7 +33,7 @@ class PostPlaylist extends Component{
   render(){
     return(
       <div>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#PostPlaylist" >
+        <button type="button" className="btn btn-primary header-button" data-toggle="modal" data-target="#PostPlaylist" >
           Create New Playlist
         </button>
         <div className="modal fade" id="PostPlaylist" tabIndex="-1" role="dialog" aria-labelledby="PostPlaylistLabel" aria-hidden="true">

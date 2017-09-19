@@ -1,7 +1,96 @@
 body {
-  background-color: white;
+  background-color: #DCDCDD;
+}
+
+a {
+  color: #DCDCDD;
+}
+
+a:hover {
+  color: #C5C3C6;
+}
+
+.navbar {
+  background-color: #46494C;
 }
 
 .login {
   height: 99vh;
+}
+
+h3 {
+  margin: .5em;
+  color: white;
+}
+
+.card {
+  margin-top: .1em;
+  margin-bottom: .1em;
+}
+
+.btn {
+  margin: .1em;
+  background-color: #1985A1;
+  border-color: #1985A1;
+}
+
+.btn:hover {
+  background-color: #4C5C68;
+  border-color: #4C5C68;
+}
+
+.btn:focus {
+  background-color: ##1985A1;
+  border-color: ##1985A1;
+}
+
+.playlist-container {
+  margin-left: .5em;
+}
+
+.header-row {
+  margin-top: .25em;
+  background-color: #1985A1;
+}
+
+.header-row-right {
+  margin-top: .25em;
+  padding-right: .25em;
+  background-color: #1985A1;
+}
+
+.header-row-left {
+  margin-top: .25em;
+  margin-left: .5em;
+  background-color: #1985A1;
+}
+
+.header-button {
+  margin-top: .5em;
+  margin-bottom: .5em;
+
+  background-color: #46494C;
+  border-color: #46494C;
+}
+
+.header-button:hover {
+  background-color: #4C5C68;
+  border-color: #4C5C68;
+}
+
+.card {
+  color: #DCDCDD;
+  background-color: #46494C;
+}
+
+.modal-body {
+  background-color: #DCDCDD;
+}
+
+.modal-header {
+  background-color: #1985A1;
+}
+
+.modal-title {
+  color: white;
 }
