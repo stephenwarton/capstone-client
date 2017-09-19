@@ -58,11 +58,12 @@ h3 {
   background-color: #1985A1;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  margin-left: 1em;
 }
 
 .header-row-middle-left {
   margin-top: .25em;
-  padding-right: .25em;
+  margin-right: 1em;
   background-color: #1985A1;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -70,7 +71,7 @@ h3 {
 
 .header-row-middle-right {
   margin-top: .25em;
-  margin-left: .5em;
+  margin-left: 1.5em;
   background-color: #1985A1;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -81,12 +82,12 @@ h3 {
   background-color: #1985A1;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  margin-right: 1em;
 }
 
 .header-button {
   margin-top: .5em;
   margin-bottom: .5em;
-
   background-color: #46494C;
   border-color: #46494C;
 }

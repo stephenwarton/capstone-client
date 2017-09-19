@@ -23,14 +23,14 @@ handlePlay(e){
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <div className="card">
           <div className="card-body">
             <div className="row">
               <div className="col-8">
-                {this.props.article.title}
+                <a target="_blank" href={this.props.article.url}>{this.props.article.title}</a>
               </div>
-              <div className="col">
+              <div className="col-4">
                 <button type="button" className="btn btn-secondary" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
                 <button type="button" className="btn btn-secondary" onClick={this.handleAdd} data-toggle="modal" data-target={`#ToPlaylistModal${this.props.article.id}`}><span className="oi oi-plus"></span></button>
                 <button type="button" className="btn btn-secondary" onClick={this.handleDelete}><span className="oi oi-trash"></span></button>

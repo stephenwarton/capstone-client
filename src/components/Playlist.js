@@ -19,6 +19,7 @@ handleDelete(e){
     let playlistKey = this.props.playlistKey;
     let playlist = this.props.playlist;
     return (
+      <div className="container-fluid">
       <div className="card playlist-container">
         <div className="card-body">
           <div className="row">
@@ -40,6 +41,7 @@ handleDelete(e){
           })}
         </div>
       </div>
+    </div>
     )
   }
 }

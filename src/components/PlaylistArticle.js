@@ -16,19 +16,19 @@ class PlaylistArticle extends Component {
 
   render() {
     return (
-      <div className="card">
-        <div className="card-body">
-          <div className="row">
-            <div className="col-9">
-              {this.props.article.article_title}
-            </div>
-            <div className="col">
-              <button type="button" className="btn btn-secondary" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
-              <button type="button" className="btn btn-secondary x" onClick={this.handleDelete}><small><span className="oi oi-x"></span></small></button>
+        <div className="card">
+          <div className="card-body">
+            <div className="row">
+              <div className="col-9">
+                <a target="_blank" href={this.props.article.article_url}>{this.props.article.article_title}</a>
+              </div>
+              <div className="col">
+                <button type="button" className="btn btn-secondary" onClick={this.handlePlay}><span className="oi oi-media-play"></span></button>
+                <button type="button" className="btn btn-secondary x" onClick={this.handleDelete}><small><span className="oi oi-x"></span></small></button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }
