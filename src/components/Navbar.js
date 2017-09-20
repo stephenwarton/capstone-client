@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import Player from './Player';
+import * as actions from '../actions';
 
 class Navbar extends Component {
 
@@ -18,19 +20,29 @@ class Navbar extends Component {
         </li>
       )
     }
-
   }
+
+    renderPlayer() {
+      if(this.props.status){
+        return (
+          <div className="container">
+            <Player status={this.props.status} setPlayingStatus={this.props.setPlayingStatus}/>
+          </div>
+        )
+      }
+    }
 
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar sticky-top">
         <div className="container">
-          <Link to="/dashboard">
-            <span className="h1 navbar-brand mb-0">Article Articulator</span>
-          </Link>
+            <Link to="/dashboard">
+              <span className="h1 navbar-brand mb-0">Article Articulator</span>
+            </Link>
           <ul className="nav navbar-nav">
             {this.renderLinks()}
           </ul>
+          {this.renderPlayer()}
         </div>
       </nav>
     );
@@ -39,8 +51,9 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    status: state.auth.status
   };
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, actions)(Navbar);

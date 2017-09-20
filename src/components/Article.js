@@ -20,8 +20,9 @@ handleDelete(e){
 handlePlay(e){
   e.preventDefault();
   voice.cancel();
-  console.log(this.props.article.id, this.props.article.content);
+  //console.log(this.props.article.id, this.props.article.content);
   voice.speak(this.props.article.content);
+  this.props.setPlayingStatus(this.props.article.title, true, false);
 }
 
   render() {

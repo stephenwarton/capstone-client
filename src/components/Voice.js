@@ -12,3 +12,16 @@ export function speak(inputText){
 export function cancel(){
   synth.cancel();
 }
+
+export function pause(){
+  synth.pause();
+}
+
+export function resume(){
+  synth.resume();
+}
+
+export function isPlaying(){
+  console.log(synth.speaking)
+  return synth.speaking;
+}

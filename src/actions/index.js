@@ -11,7 +11,8 @@ import {
   DELETE_ARTICLE,
   DELETE_PLAYLIST,
   ADD_TO_PLAYLIST,
-  REMOVE_FROM_PLAYLIST
+  REMOVE_FROM_PLAYLIST,
+  SET_PLAYING_STATUS
  } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -200,5 +201,15 @@ export function removeFromPlaylist(id, fetchPlaylists){
         });
         fetchPlaylists();
       });
+  }
+}
+
+export function setPlayingStatus(title, playing, paused){
+  let data = {title, playing, paused};
+  return function(dispatch){
+    dispatch({
+      type: SET_PLAYING_STATUS,
+      payload: data
+    });
   }
 }

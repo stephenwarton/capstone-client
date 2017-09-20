@@ -35,7 +35,7 @@ handleDelete(e){
               // console.log(article)
               let returned;
               if(article.article_id){
-                returned = <PlaylistArticle key={article.id} article={article} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist}/>
+                returned = <PlaylistArticle key={article.id} article={article} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist} setPlayingStatus={this.props.setPlayingStatus}/>
               }
             return returned
           })}

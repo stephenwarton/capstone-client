@@ -20,7 +20,7 @@ class Dashboard extends Component {
       playlists = playlists.map(playlist => {
         let playlistKey = Object.keys(playlist)[0];
         let id = playlist[playlistKey][0].playlist_id;
-        return <Playlist key={id} id={id} playlistKey={playlistKey} playlist={playlist} deletePlaylist={this.props.deletePlaylist} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist}/>
+        return <Playlist key={id} id={id} playlistKey={playlistKey} playlist={playlist} deletePlaylist={this.props.deletePlaylist} fetchPlaylists={this.props.fetchPlaylists} removeFromPlaylist={this.props.removeFromPlaylist} setPlayingStatus={this.props.setPlayingStatus}/>
       })
     } else {
       playlists = [];
@@ -29,7 +29,7 @@ class Dashboard extends Component {
     let articles = this.props.articles;
     if(articles){
       articles = articles.map(article => {
-        return <Article key={article.id} article={article} deleteArticle={this.props.deleteArticle} fetchArticles={this.props.fetchArticles} fetchPlaylists={this.props.fetchPlaylists} playlists={playlists} addToPlaylist={this.props.addToPlaylist}/>
+        return <Article key={article.id} article={article} deleteArticle={this.props.deleteArticle} fetchArticles={this.props.fetchArticles} fetchPlaylists={this.props.fetchPlaylists} playlists={playlists} addToPlaylist={this.props.addToPlaylist} setPlayingStatus={this.props.setPlayingStatus}/>
       })
     } else {
       articles = [];
