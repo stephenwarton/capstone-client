@@ -36,7 +36,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar sticky-top">
         <div className="container">
-            <Link to="/dashboard">
+            <Link to="/">
               <span className="h1 navbar-brand mb-0">Article Articulator</span>
             </Link>
           <ul className="nav navbar-nav">

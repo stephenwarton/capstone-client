@@ -4,7 +4,7 @@ import * as actions from '../actions';
 
 class Login extends Component {
   handleFormSubmit({ email, password }){
-    this.props.loginUser({ email, password });
+    this.props.loginUser({ email, password }, this.props.fetchArticles, this.props.fetchPlaylists );
   }
 
   renderAlert(){

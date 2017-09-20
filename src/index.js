@@ -11,7 +11,6 @@ import { AUTH_USER } from './actions/types';
 
 import App from './containers/App';
 import Logout from './components/Logout';
-import Dashboard from './components/Dashboard';
 import RequireAuth from './components/require_auth';
 
 //const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger)(createStore);
@@ -29,7 +28,6 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route path="logout" component={RequireAuth(Logout)} />
-        <Route path="dashboard" component={RequireAuth(Dashboard)} />
       </Route>
     </Router>
   </Provider>,

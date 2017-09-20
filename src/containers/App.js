@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import Login from '../components/Login';
+import Dashboard from '../components/Dashboard';
 import Navbar from '../components/Navbar';
 import { connect } from 'react-redux';
 
@@ -12,7 +13,7 @@ class App extends Component {
         {this.props.children}
         {
           this.props.authenticated
-          ? <div></div>
+          ? <Dashboard />
           : <Login />
         }
       </div>
