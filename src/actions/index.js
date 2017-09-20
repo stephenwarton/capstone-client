@@ -15,8 +15,8 @@ import {
   SET_PLAYING_STATUS
  } from './types';
 
-// const API_URL = 'http://localhost:3000';
-const API_URL = 'https://article-articulator.firebaseapp.com';
+//const API_URL = 'http://localhost:3000';
+const API_URL = 'https://article-articulator.herokuapp.com';
 
 export function loginUser({ email, password }) {
   return function(dispatch){
