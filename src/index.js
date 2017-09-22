@@ -7,14 +7,15 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import './styles/main.css';
 import { AUTH_USER } from './actions/types';
-//import logger from 'redux-logger';
+import logger from 'redux-logger';
 
 import App from './containers/App';
 import Logout from './components/Logout';
 import RequireAuth from './components/require_auth';
+import Signup from './components/Signup';
 
-//const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger)(createStore);
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger)(createStore);
+//const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 
@@ -29,6 +30,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <Route path="logout" component={RequireAuth(Logout)} />
       </Route>
+      <Route path="signup" component={Signup} />
     </Router>
   </Provider>,
   document.getElementById('root'));

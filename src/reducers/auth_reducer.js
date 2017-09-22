@@ -10,7 +10,8 @@ import {
   DELETE_PLAYLIST,
   ADD_TO_PLAYLIST,
   REMOVE_FROM_PLAYLIST,
-  SET_PLAYING_STATUS
+  SET_PLAYING_STATUS,
+  SIGNUP_USER
 } from '../actions/types'
 
 export default function(state = {}, action){
@@ -40,6 +41,8 @@ export default function(state = {}, action){
       return { ...state, delete: action.payload };
     case SET_PLAYING_STATUS:
       return { ...state, status: action.payload };
+    case SIGNUP_USER:
+      return { ...state, signup: true };
     default:
   }
   return state;

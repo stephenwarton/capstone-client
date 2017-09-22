@@ -10,3 +10,4 @@ export const DELETE_PLAYLIST = 'delete_playlist';
 export const ADD_TO_PLAYLIST = 'add_to_playlist';
 export const REMOVE_FROM_PLAYLIST = 'remove_from_playlist';
 export const SET_PLAYING_STATUS = 'now_playing';
+export const SIGNUP_USER = 'signup_user';

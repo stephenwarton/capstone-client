@@ -16,7 +16,7 @@ class Navbar extends Component {
     } else {
       return (
         <li className="navbar-nav">
-          <Link className="nav-link" to="/newAccount">Create New Account</Link>
+          <Link className="nav-link" to="/signup">Create New Account</Link>
         </li>
       )
     }

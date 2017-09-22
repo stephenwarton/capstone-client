@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
   UNAUTH_USER,
@@ -11,7 +12,8 @@ import {
   DELETE_PLAYLIST,
   ADD_TO_PLAYLIST,
   REMOVE_FROM_PLAYLIST,
-  SET_PLAYING_STATUS
+  SET_PLAYING_STATUS,
+  SIGNUP_USER
  } from './types';
 
 //const API_URL = 'http://localhost:3000';
@@ -209,5 +211,19 @@ export function setPlayingStatus(title, playing, paused){
       type: SET_PLAYING_STATUS,
       payload: data
     });
+  }
+}
+
+export function signUp({ email, password }, loginUser, fetchArticles, fetchPlaylists) {
+  return function(dispatch){
+    axios.post(`${API_URL}/api/v1/users`, { email, password })
+      .then(response => {
+        dispatch({ type: SIGNUP_USER });
+        loginUser({email, password}, fetchArticles, fetchPlaylists);
+        browserHistory.push('/');
+      })
+      .catch(error => {
+        dispatch(authError(error.response.data.message));
+      });
   }
 }
