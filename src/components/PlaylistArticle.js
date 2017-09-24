@@ -20,7 +20,7 @@ class PlaylistArticle extends Component {
     voice.cancel();
     //console.log(this.props.article.id, this.props.article.content);
     voice.speak(this.props.article.article_content);
-        this.props.setPlayingStatus(this.props.article.article_title, true, false);
+    this.props.setPlayingStatus(this.props.article.article_title, true, false);
   }
 
   render() {
